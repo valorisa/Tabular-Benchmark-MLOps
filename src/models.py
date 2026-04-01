@@ -130,7 +130,7 @@ class ModelWrapper:
 
             if (epoch + 1) % 10 == 0:
                 logger.info(
-                    f"Epoch {epoch+1}/{epochs}, "
+                    f"Epoch {epoch + 1}/{epochs}, "
                     f"Train Loss: {loss.item():.4f}, "
                     f"Val Loss: {val_loss.item():.4f}"
                 )
