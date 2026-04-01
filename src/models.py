@@ -3,10 +3,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from sklearn.ensemble import (
-    RandomForestClassifier,
-    RandomForestRegressor,
-)
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from xgboost import XGBClassifier, XGBRegressor
 
 from src.utils import get_logger
