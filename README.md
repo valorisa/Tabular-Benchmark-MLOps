@@ -139,7 +139,189 @@ python src/main.py --task classification --model all --epochs 100
 -   **Régression** : RMSE, R², Loss
 -   **Système** : Temps d'entraînement (via W&B)
 
-## 🤝 Contribuer
+
+## 🚀 Guide Complet des Commandes (PowerShell)
+
+### 📦 Installation et Configuration
+
+```powershell
+# Naviguer vers le projet
+cd C:\Users\bbrod\Projets\tabular-benchmark-mlops
+
+# Créer et activer l'environnement virtuel
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+# Mettre à jour pip et installer les dépendances
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+pip install -e .
+
+# Installer les outils de développement (optionnel)
+pip install -e .[dev]
+
+# Configurer pre-commit (pour les commits locaux)
+pre-commit install
+```
+
+### 🧪 Lancement du Benchmark
+
+```powershell
+# Benchmark complet - Classification (100 epochs)
+python src/main.py --task classification --model all --epochs 100 --offline
+
+# Benchmark complet - Régression (50 epochs)
+python src/main.py --task regression --model all --epochs 50 --offline
+
+# Modèle individuel - Scikit-Learn
+python src/main.py --task classification --model sklearn --epochs 100 --offline
+
+# Modèle individuel - XGBoost (meilleur performeur)
+python src/main.py --task classification --model xgboost --epochs 100 --offline
+
+# Modèle individuel - PyTorch MLP
+python src/main.py --task classification --model pytorch --epochs 100 --offline
+
+# Avec configuration personnalisée
+python src/main.py --task classification --model all --config configs/experiment.yaml --offline
+
+# En mode online (sync vers W&B cloud)
+python src/main.py --task classification --model all --epochs 100
+```
+
+### ✅ Tests et Validation
+
+```powershell
+# Lancer tous les tests unitaires
+pytest tests/ -v
+
+# Lancer les tests avec couverture de code (optionnel)
+pytest tests/ -v --cov=src --cov-report=html
+
+# Vérifier le linting (pre-commit hooks)
+pre-commit run --all-files
+
+# Vérifier uniquement avec flake8
+flake8 src/ tests/ --max-line-length=88 --ignore=E501,E402,E203,W503
+
+# Vérifier le formatage Black
+black src/ tests/ --check
+
+# Vérifier l'ordre des imports isort
+isort src/ tests/ --check-only
+```
+
+### 📊 Weights & Biases (W&B)
+
+```powershell
+# Se connecter à W&B (première fois uniquement)
+wandb login
+
+# Vérifier le statut de connexion
+wandb online
+
+# Travailler en offline (par défaut)
+python src/main.py --task classification --model all --epochs 100 --offline
+
+# Travailler en online (sync vers le cloud)
+wandb online
+python src/main.py --task classification --model all --epochs 100
+
+# Sync les runs offline vers le cloud
+wandb sync wandb/offline-run-*
+
+# Sync un run spécifique
+wandb sync wandb/offline-run-20260401_185248-m5qu6w33
+
+# Voir tous les runs offline
+Get-ChildItem wandb\offline-run-* | Select-Object Name
+
+# Ouvrir le dashboard W&B dans le navigateur
+Start-Process "https://wandb.ai/bbrodeau/tabular-benchmark-mlops"
+```
+
+### 🔧 Git et GitHub
+
+```powershell
+# Vérifier l'état du repository
+git status
+
+# Voir les changements
+git diff
+
+# Ajouter tous les fichiers modifiés
+git add .
+
+# Ajouter un fichier spécifique
+git add src/models.py
+
+# Commiter avec un message
+git commit -m "fix: description du changement"
+
+# Commiter en sautant l'étape d'add (fichiers déjà tracked)
+git commit -am "feat: nouvelle fonctionnalité"
+
+# Pousser vers GitHub
+git push origin main
+
+# Tirer les changements depuis GitHub
+git pull origin main
+
+# Créer une nouvelle branche
+git checkout -b feature/nouvelle-fonctionnalite
+
+# Changer de branche
+git checkout main
+
+# Voir l'historique des commits
+git log --oneline -10
+
+# Annuler les changements non commités
+git checkout -- .
+```
+
+### 🧹 Nettoyage et Maintenance
+
+```powershell
+# Supprimer les fichiers __pycache__
+Remove-Item -Recurse -Force __pycache__ -ErrorAction SilentlyContinue
+Get-ChildItem -Recurse -Directory -Filter __pycache__ | Remove-Item -Recurse -Force
+
+# Supprimer l'environnement virtuel
+Remove-Item -Recurse -Force .venv -ErrorAction SilentlyContinue
+
+# Supprimer les logs d'exécution
+Remove-Item -Recurse -Force logs\* -ErrorAction SilentlyContinue
+
+# Supprimer les modèles sauvegardés
+Remove-Item -Recurse -Force models\* -ErrorAction SilentlyContinue
+
+# Supprimer les builds
+Remove-Item -Recurse -Force build, dist, *.egg-info -ErrorAction SilentlyContinue
+
+# Nettoyer les runs W&B offline (après sync)
+Remove-Item -Recurse -Force wandb\offline-run-* -ErrorAction SilentlyContinue
+
+# Script de nettoyage complet
+Remove-Item -Recurse -Force __pycache__, .venv, logs, models, build, dist -ErrorAction SilentlyContinue
+```
+
+### 📈 Commandes Rapides (Récapitulatif)
+
+| Action | Commande |
+| :--- | :--- |
+| **Activer venv** | `.\.venv\Scripts\Activate.ps1` |
+| **Benchmark classification** | `python src/main.py --task classification --model all --epochs 100 --offline` |
+| **Benchmark régression** | `python src/main.py --task regression --model all --epochs 50 --offline` |
+| **Tests unitaires** | `pytest tests/ -v` |
+| **Linting** | `pre-commit run --all-files` |
+| **W&B login** | `wandb login` |
+| **W&B sync** | `wandb sync wandb/offline-run-*` |
+| **Git push** | `git push origin main` |
+| **Nettoyage** | `Remove-Item -Recurse -Force __pycache__, .venv` |
+
+---
+
 
 1.  Forker le projet
 2.  Créer une branche (`git checkout -b feature/nom`)
