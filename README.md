@@ -335,6 +335,101 @@ Voir [CONTRIBUTING.md](CONTRIBUTING.md) pour les détails.
 
 Distribué sous la licence MIT. Voir [LICENSE](LICENSE).
 
+
+## 📚 Qu'est-ce que le MLOps ?
+
+### Définition
+
+**MLOps** (Machine Learning Operations) désigne l'ensemble des pratiques et outils qui visent à **automatiser et industrialiser** le cycle de vie des projets de Machine Learning, du développement au déploiement et à la surveillance.
+
+C'est l'équivalent du **DevOps** appliqué au Machine Learning.
+
+---
+
+### 🎯 Pourquoi le MLOps ?
+
+| Problème Sans MLOps | Solution Avec MLOps |
+| :--- | :--- |
+| ❌ Modèles développés localement, impossibles à reproduire | ✅ Environnements reproductibles et versionnés |
+| ❌ Tests manuels et erreurs humaines | ✅ Tests automatisés et CI/CD |
+| ❌ Pas de suivi des expériences | ✅ Tracking centralisé (W&B, MLflow) |
+| ❌ Déploiements longs et risqués | ✅ Déploiements automatisés et rollback facile |
+| ❌ Pas de surveillance en production | ✅ Monitoring des performances et alertes |
+
+---
+
+### 🔄 Cycle de Vie MLOps
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│  CYCLE DE VIE MLOPS                                         │
+├─────────────────────────────────────────────────────────────┤
+│  1. 📊 COLLECTE DE DONNÉES                                  │
+│  2. 🧪 DÉVELOPPEMENT DE MODÈLES                             │
+│  3. ✅ VALIDATION ET TESTS                                  │
+│  4. 🚀 DÉPLOIEMENT                                          │
+│  5. 📈 SURVEILLANCE                                         │
+│  6. 🔄 ITÉRATION                                            │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 🛠 Composants Clés du MLOps
+
+| Composant | Outil(s) | Rôle |
+| :--- | :--- | :--- |
+| **Gestion de Code** | Git, GitHub | Versionning du code source |
+| **CI/CD** | GitHub Actions | Tests et déploiements automatisés |
+| **Tracking d'Expériences** | W&B, MLflow | Suivi des runs et métriques |
+| **Gestion de Données** | DVC, Pandas | Versionning des datasets |
+| **Packaging** | pip, Docker | Reproductibilité des environnements |
+| **Testing** | pytest | Validation automatique du code |
+| **Code Quality** | Black, isort, flake8 | Standards de code cohérents |
+| **Monitoring** | W&B, Prometheus | Surveillance des modèles en prod |
+
+---
+
+### 📋 Tâches Typiques en MLOps
+
+Le MLOps implique des tâches telles que :
+
+-   ✅ **Suivi des tests et des résultats** pour identifier les meilleurs modèles
+-   ✅ **Versionning du code** et des données pour la reproductibilité
+-   ✅ **Automatisation des pipelines** d'entraînement et d'évaluation
+-   ✅ **Validation de la qualité** des données et des modèles
+-   ✅ **Déploiement continu** des nouveaux modèles
+-   ✅ **Surveillance des performances** en production
+-   ✅ **Gestion des dépendances** et des environnements
+-   ✅ **Documentation** des décisions et des expériences
+
+---
+
+### 🎓 Comment Ce Projet Démontre le MLOps ?
+
+| Pratique MLOps | Implémentation dans Ce Projet |
+| :--- | :--- |
+| **CI/CD** | GitHub Actions avec pre-commit + pytest |
+| **Tracking** | Weights & Biases pour les métriques |
+| **Testing** | Tests unitaires avec pytest |
+| **Code Quality** | Black, isort, flake8 via pre-commit |
+| **Packaging** | `pip install -e .` avec pyproject.toml |
+| **Configuration** | Fichiers YAML dans `configs/` |
+| **Documentation** | README, CONTRIBUTING, TROUBLESHOOTING |
+| **Reproductibilité** | Seeds fixes, environnements virtuels |
+
+---
+
+### 🚀 Avantages du MLOps
+
+| Pour Qui ? | Bénéfices |
+| :--- | :--- |
+| **Data Scientists** | Plus de temps sur les modèles, moins sur le déploiement |
+| **Ingénieurs ML** | Déploiements fiables et reproductibles |
+| **Entreprises** | Réduction des risques, time-to-market accéléré |
+| **Équipes** | Collaboration facilitée, knowledge sharing |
+
+---
 ## 🙏 Remerciements
 
 -   **Scikit-Learn** : Datasets synthétiques
