@@ -1,6 +1,7 @@
 """Training pipeline with W&B logging."""
 
 import wandb
+
 from src.evaluate import evaluate_model
 from src.models import ModelWrapper
 from src.utils import get_logger
