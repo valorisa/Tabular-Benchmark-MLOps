@@ -1,6 +1,6 @@
 # 🔧 Troubleshooting Guide
 
-Ce document recense les problèmes rencontrés lors du développement de ce projet et leurs solutions.
+Ce document recense tous les problèmes rencontrés à ce jour (april 02) lors du développement de ce projet et leurs solutions.
 
 ---
 
