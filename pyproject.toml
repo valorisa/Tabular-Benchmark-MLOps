@@ -37,6 +37,7 @@ target-version = ['py311']
 
 [tool.isort]
 profile = "black"
+known_first_party = ["src"]
 [tool.flake8]
 max-line-length = 88
 extend-ignore = "E203,W503"
